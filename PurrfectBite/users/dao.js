@@ -37,5 +37,7 @@ export const findUsersByListOfId = (userIds) => model.find({ _id: { $in: userIds
     );
     return updatedUser;
   };
+  export const deleteUserFromFollowing = async (userId) => model.updateMany({ following: userId },{ $pull: { following: userId } });
+  
 
   

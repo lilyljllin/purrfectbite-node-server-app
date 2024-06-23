@@ -102,6 +102,11 @@ export default function UserRoutes(app) {
             res.status(401).json({ message: "Failed to update user." });
         }
   };
+  const deleteUserFromFollowing = async (req, res) => {
+    const { userId } = req.params;
+    const status = await dao.deleteUserFromFollowing(userId);
+    res.json(status);
+  }
 
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
@@ -114,4 +119,5 @@ export default function UserRoutes(app) {
   app.post("/api/users/profile", profile);
   app.put("/api/users/:userId/addFollowing/:followingId", addFollowing);
   app.put("/api/users/:userId/deleteFollowing/:followingId", deleteFollowing);
+  app.put("/api/users/remove/:userId", deleteUserFromFollowing);
 }

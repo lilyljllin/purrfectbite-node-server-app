@@ -11,6 +11,10 @@ const savedSchema = new mongoose.Schema({
         required: true
     },
     note: String,
+    createdAt: {
+        type: Date, 
+        default: Date.now,
+    }
 }, {
     collection: 'savedRecipes'
 });
