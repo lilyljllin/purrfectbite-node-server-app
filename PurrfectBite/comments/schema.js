@@ -16,6 +16,7 @@ const commentSchema = new mongoose.Schema({
     userName: {
         type: String,
     }
+    
 },
     { collection: "comments"}
 );

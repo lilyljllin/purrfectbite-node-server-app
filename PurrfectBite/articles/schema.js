@@ -16,10 +16,6 @@ const articleSchema = new mongoose.Schema({
         required: true,
         default: ""
     },
-    picture: {
-        type: String,
-        defualt: "nutrition.png"
-    },
     
 }, {
     collection: 'articles',
