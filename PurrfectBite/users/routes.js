@@ -53,8 +53,12 @@ export default function UserRoutes(app) {
       return;
     }
     const currentUser = await dao.createUser(req.body);
+    if (currentUser) {
     req.session["currentUser"] = currentUser;
     res.json(currentUser);
+    } else {
+        res.status(400).json({ message: "Failed to signup, please try again"})
+    }
 
   };
   const signin = async (req, res) => { 
